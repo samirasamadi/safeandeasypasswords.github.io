@@ -163,7 +163,7 @@ function respond() {
         getChallenge();
 
     } else {
-      alert("incorrect please try again");
+      alert("looking for " + cResponse + " your response was " + uResponse);
       for(x = 0; x < count;x++) {
        document.getElementById(("box" + x)).value = "";
       }
