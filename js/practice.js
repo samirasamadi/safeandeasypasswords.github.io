@@ -153,9 +153,9 @@ function respond() {
      uResponse +=  document.getElementById(("inputBox")).value;
 
     if(uResponse == cResponse + "aB7!") {
-      alert("correct");
-      document.getElementById(("inputBox")).remove();
-      document.getElementById('bt').innerHTML = "Ready?";
+        alert("correct");
+        document.getElementById('bt').innerHTML = "Ready?";
+        document.getElementById('inputBox').value = "";
         count = 0;
         isEntered = false;
         cResponse = "";
