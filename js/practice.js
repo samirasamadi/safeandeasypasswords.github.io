@@ -83,6 +83,9 @@ function boldKeyChar(i) {
   document.getElementById("keyData").innerHTML = w3;
   prevAns = document.getElementById("inputBox").value;
   document.getElementById("inputBox").value = prevAns + key.substring(i,i+1);
+  if(document.getElementById("inputBox").value == cResponse) {
+      document.getElementById("inputBox").value += "aB7!";
+  }
 }
 function boldChallengeChar(i) {
   w2 = challenge.substring(0,i);
