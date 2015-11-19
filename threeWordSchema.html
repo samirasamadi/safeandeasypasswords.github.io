@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://www.gatech.edu/sites/all/themes/gt_tlw/favicon.ico">
+
+    <title>Passwords</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+ <link href="css/page.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body onload = "getChallenge()">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">Safe and Easy Passwords</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="threeWordSchema.html">Three Word Schema</a></li>
+        </div><!--/.nav-collapse -->
+      </div>
+  </nav>
+
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Three Word Schema</h1>
+        <h4>Preprocessing (to be done only once)</h4>
+        <ol>
+            <li>Select two random words with at least 8 letters each, e.g., by opening a dictionary on a random page (e.g., RAPHSODY, EGALITARIAN). The words can be made-up, from other languages etc.</li>
+            <li>Write down the letters A,B, ..., Z and mark off all letters that appear in your two words (letters not marked: B, C, F, J, K, M, Q, U, V, W, X, Z)</li>
+            <li>Select a third word that contains many of the letters of the alphabet that aren't marked (i.e., not covered by the first two words) but might contain some that are marked (e.g., MUSICBOX)</li>
+            <li>Memorize these three words as a fixed sequence (e.g., EGALITARIAN-MUSICBOX-RHAPSODY)</li>
+            <li>Choose a digit and special character and remember them (e.g., 7, @)</li>
+        </ol>
+        <h4>Processing (to be done whenever you need to type a password)</h4>
+        <h4>Given a challenge (a website name or prompt based on the website name, e.g., GMAIL), generate a response (password) as follows:</h4>
+        <ol>
+            <li>Start at the first letter of the challenge (G).</li>
+            <li>Find the first occurrence of the letter in your memorized sequence of words and output the next consonant (L in EGALITARIAN). If the letter is Y, wrap back to the first word; if the letter doesn't show up in your sequence of words, skip it. </li>
+            <li>Repeat on the remaining letters of the challenge till you reach the end (G -> L, M -> S, A -> L, I -> T, L -> T; GMAIL -> LSLTT)</li>
+            <li>Captialize the first letter, attach your digit and special character; this step is to satisfy password restrictions of most websites (but always use the same rule for yourself and in the same location (beginning, end, after first letter) so you have no trouble remembering). GMAIL ->Lsltt</li>
+        </ol>
+
+        <h4>Another Example</h4>
+        <ol>
+            <li>Suppose you are presented with a challenge:<b> AMAZON</b> and you are using the sequence EGALITARIAN-MUSICBOX-RHAPSODY</li>
+            The first letter of the challenge <b>A</b> is found in the sequence of three words</li>
+            <li>The output for this letter is the first non vowel following the letter in the sequence, so the output is <b>L</b></li>
+            <li>Next we look for <b>M</b> in the sequence and find it in the second word</li>
+            <li>The next non vowel following <b>M</b> is <b>S</b>, so the output including the second letter of the challenge is <b>LS</b>
+            <li>The output for the next letter in the sequence, <b>A</b>, is the same as its previous occurence</li>
+            <li>This means the output including the third letter of the challenge is <b>LSL</b></li>
+            <li>The next letter of the challenge, <b>Z</b>, does not appear in our sequence, so we skip this letter</li>
+            <li>The output does not change and is still <b>LSL</b></li>
+            <li>The next letter in the challenge is <b>O</b> which does appear in our sequence</li>
+            <li>The next non vowel letter in the sequence after <b>O</b> is <b>X</b>, so the output thus far is <b>LSLX</b></li>
+            <li>The final letter of our challenge is <b>N</b> which is present in our sequence</li>
+            <li>the next non vowel letter after <b>N</b> in the sequence is <b>M</b>, so the final output of the challenge <b>AMAZON</b> is <b>LSLXM</b></li>
+        </ol>
+        <h4>Practice on Your Own!</h4>
+        <p>The section below allows you to practice with the three word schema with three words of your choice</p>
+        <p>First, enter your three words then fill out the textboxes with the correct responses</p>
+
+        <div class="form-group">
+            <label>First Word</label>
+            <input type="text" class="form-control" id="firstWord" value="EGALITARIAN">
+            <label>Second Word</label>
+            <input type="text" class="form-control" id="secondWord" value="MUSICBOX">
+            <label>Third Word</label>
+            <input type="text" class="form-control" id="thirdWord" value="RHAPSODY">
+            <div id = "checks"></div>
+            <button type="submit" class="btn btn-default" onclick="respond()" id = "bt">Submit</button>
+        </div>
+        <div id = "challengeDiv"></div>
+        <h4 id = "challengeData"></h4>
+        <h4 id = "keyData"></h4>
+        <button type="submit" class="btn btn-default" onclick="checker()" id = "btTest">Help</button>
+        <h4>Comments</h4>
+        <div class = "form-group">
+            <label for="comment">Email us :</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/practice.js"></script>
+  </body>
+</html>

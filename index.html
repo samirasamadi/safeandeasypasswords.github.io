@@ -25,7 +25,7 @@
     <![endif]-->
   </head>
 
-  <body onload = "getChallenge()">
+  <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -36,80 +36,37 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand">Safe and Easy Passwords</a>
+          <a class="navbar-brand" href="#">Safe and Secure Passwords</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="threeWordSchema.html">Three Word Schema</a></li>
         </div><!--/.nav-collapse -->
       </div>
   </nav>
 
 
     <div class="container">
+        <p>When was the last time that you wanted to login to a website or an app but you had forgotten your password?
+        How many passwords did you unsuccessfully try in order to login?
+        How many of these passwords have been used for other websites/apps?</p>
 
-      <div class="starter-template">
-        <h1>Three Word Schema</h1>
-        <h4>Preprocessing (to be done only once)</h4>
-        <ol>
-            <li>Select two random words with at least 8 letters each, e.g., by opening a dictionary on a random page (e.g., RAPHSODY, EGALITARIAN). The words can be made-up, from other languages etc.</li>
-            <li>Write down the letters A,B, ..., Z and mark off all letters that appear in your two words (letters not marked: B, C, F, J, K, M, Q, U, V, W, X, Z)</li>
-            <li>Select a third word that contains many of the letters of the alphabet that aren't marked (i.e., not covered by the first two words) but might contain some that are marked (e.g., MUSICBOX)</li>
-            <li>Memorize these three words as a fixed sequence (e.g., EGALITARIAN-MUSICBOX-RHAPSODY)</li>
-            <li>Choose a digit and special character and remember them (e.g., 7, @)</li>
-        </ol>
-        <h4>Processing (to be done whenever you need to type a password)</h4>
-        <h4>Given a challenge (a website name or prompt based on the website name, e.g., GMAIL), generate a response (password) as follows:</h4>
-        <ol>
-            <li>Start at the first letter of the challenge (G).</li>
-            <li>Find the first occurrence of the letter in your memorized sequence of words and output the next consonant (L in EGALITARIAN). If the letter is Y, wrap back to the first word; if the letter doesn't show up in your sequence of words, skip it. </li>
-            <li>Repeat on the remaining letters of the challenge till you reach the end (G -> L, M -> S, A -> L, I -> T, L -> T; GMAIL -> LSLTT)</li>
-            <li>Captialize the first letter, attach your digit and special character; this step is to satisfy password restrictions of most websites (but always use the same rule for yourself and in the same location (beginning, end, after first letter) so you have no trouble remembering). GMAIL ->Lsltt</li>
-        </ol>
+        <p>Do you know that XXX% of users use the same password for different websites,
+        which make their passwords very vulnerable to hackers’ attacks?
+        Do you know that more than YYY% of the websites that we currently use do not securely store the passwords, making it easy for hackers to find our passwords and login to any other website that use the same or similar password?
+        Have you ever been concerned about your online private information?</p>
 
-        <h4>Another Example</h4>
-        <ol>
-            <li>Suppose you are presented with a challenge:<b> AMAZON</b> and you are using the sequence EGALITARIAN-MUSICBOX-RHAPSODY</li>
-            The first letter of the challenge <b>A</b> is found in the sequence of three words</li>
-            <li>The output for this letter is the first non vowel following the letter in the sequence, so the output is <b>L</b></li>
-            <li>Next we look for <b>M</b> in the sequence and find it in the second word</li>
-            <li>The next non vowel following <b>M</b> is <b>S</b>, so the output including the second letter of the challenge is <b>LS</b>
-            <li>The output for the next letter in the sequence, <b>A</b>, is the same as its previous occurence</li>
-            <li>This means the output including the third letter of the challenge is <b>LSL</b></li>
-            <li>The next letter of the challenge, <b>Z</b>, does not appear in our sequence, so we skip this letter</li>
-            <li>The output does not change and is still <b>LSL</b></li>
-            <li>The next letter in the challenge is <b>O</b> which does appear in our sequence</li>
-            <li>The next non vowel letter in the sequence after <b>O</b> is <b>X</b>, so the output thus far is <b>LSLX</b></li>
-            <li>The final letter of our challenge is <b>N</b> which is present in our sequence</li>
-            <li>the next non vowel letter after <b>N</b> in the sequence is <b>M</b>, so the final output of the challenge <b>AMAZON</b> is <b>LSLXM</b></li>
-        </ol>
-        <h4>Practice on Your Own!</h4>
-        <p>The section below allows you to practice with the three word schema with three words of your choice</p>
-        <p>First, enter your three words then fill out the textboxes with the correct responses</p>
+        <p>If you are also concerned about the security of online private data, we have a solution for you.
+        Based on more than 10 person-years of research at Carnegie Mellon University and Georgia Institute of Technology,
+        we have designed a few password schemas that can help you to choose and remember more secure,
+        yet easy to remember, passwords. Our focus has been on usability and security.
+        Our password schemas help you to easily build a unique password for every different website, and easily remember it.
+        With our methods, a third party will need to hack at least six different websites, before they can correctly guess all of your passwords.
+        This is a significant increase in security compared to using a set of similar passwords for all the websites.</p>
 
-        <div class="form-group">
-            <label>First Word</label>
-            <input type="text" class="form-control" id="firstWord" value="EGALITARIAN">
-            <label>Second Word</label>
-            <input type="text" class="form-control" id="secondWord" value="MUSICBOX">
-            <label>Third Word</label>
-            <input type="text" class="form-control" id="thirdWord" value="RHAPSODY">
-            <div id = "checks"></div>
-            <button type="submit" class="btn btn-default" onclick="respond()" id = "bt">Submit</button>
-        </div>
-        <div id = "challengeDiv"></div>
-        <h4 id = "challengeData"></h4>
-        <h4 id = "keyData"></h4>
-        <button type="submit" class="btn btn-default" onclick="checker()" id = "btTest">Help</button>
-        <h4>Comments</h4>
-        <div class = "form-group">
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </div>
-
+       If you are interested to learn more, click here to for more details about our password schemas.</p>
+      <a href = "http://www.cc.gatech.edu/~vempala/papers/phuspcs.pdf">Original publication</a>
     </div><!-- /.container -->
 
 
@@ -118,6 +75,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/practice.js"></script>
   </body>
 </html>
