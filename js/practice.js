@@ -144,7 +144,7 @@ function respond() {
   }
   if (!isEntered) {
     count = findResponseLength(challenge,key);
-     cResponse+= "aB7!";
+     //cResponse+= "aB7!";
     //Change to one text box
     //make sure to read from the changed input field
     //
