@@ -142,7 +142,7 @@ function respond() {
       alert("Please enter words");
       return;
   }
-  document.getElementById("inputBox").setAttribute("disabled", false);
+  document.getElementById("inputBox").removeAttribute("disabled");
   if (!isEntered) {
     count = findResponseLength(challenge,key);
     isEntered = true;
