@@ -139,7 +139,7 @@ function respond() {
   }
   if (!isEntered) {
     count = findResponseLength(challenge,key);
-    cResponse += "aB7!";
+     cResponse+= "aB7!";
     //Change to one text box
     //make sure to read from the changed input field
     //
@@ -154,7 +154,7 @@ function respond() {
   } else {
     var uResponse = "";
 
-     uResponse +=  document.getElementById(("inputBox")).value.toUpperCase();
+     uResponse +=  document.getElementById(("inputBox")).value;
 
     if(uResponse == cResponse) {
       alert("correct");
