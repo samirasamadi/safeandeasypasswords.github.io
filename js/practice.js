@@ -82,7 +82,7 @@ function boldKeyChar(i) {
   w3 += key.substring(i+1,key.length);
   document.getElementById("keyData").innerHTML = w3;
   prevAns = document.getElementById("inputBox").value;
-  document.getElementById("inputBox").innerHTML = prevAns + key.substring(i,i+1);
+  document.getElementById("inputBox").value = prevAns + key.substring(i,i+1);
 }
 function boldChallengeChar(i) {
   w2 = challenge.substring(0,i);
