@@ -40,7 +40,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="threeWordSchema.html">Three Word Schema</a></li>
         </div><!--/.nav-collapse -->
       </div>
@@ -88,26 +88,32 @@
         <p>The section below allows you to practice with the three word schema with three words of your choice</p>
         <p>First, enter your three words then fill out the textboxes with the correct responses</p>
 
-        <div class="form-group">
-            <label>First Word</label>
-            <input type="text" class="form-control" id="firstWord" value="EGALITARIAN">
-            <label>Second Word</label>
-            <input type="text" class="form-control" id="secondWord" value="MUSICBOX">
-            <label>Third Word</label>
-            <input type="text" class="form-control" id="thirdWord" value="RHAPSODY">
+        <div class="row">
+            <div class = "col-xs-4">
+                <input type="text" maxlength="10" class="form-control" id="firstWord" value="EGALITARIAN">
+            </div>
+            <div class = "col-xs-4">
+            <input type="text" maxlength="10" class="form-control" id="secondWord" value="MUSICBOX">
+            </div>
+            <div class = "col-xs-4">
+            <input type="text" maxlength="10" class="form-control" id="thirdWord" value="RHAPSODY">
+            <br>
+            </div>
             <div id = "checks"></div>
+            <div class = "col-xs-4">
+                <br>
             <button type="submit" class="btn btn-default" onclick="respond()" id = "bt">Submit</button>
+            </div>
         </div>
+
         <div id = "challengeDiv"></div>
         <h4 id = "challengeData"></h4>
         <h4 id = "keyData"></h4>
         <button type="submit" class="btn btn-default" onclick="checker()" id = "btTest">Help</button>
-        <h4>Comments</h4>
         <div class = "form-group">
-            <label for="comment">Email us :</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
+            <label>Email us :</label>
+            <button type="submit" class="btn btn-default" onclick = "emailUs()">Click here</button>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </div>
 
     </div><!-- /.container -->

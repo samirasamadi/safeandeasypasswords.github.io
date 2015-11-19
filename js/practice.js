@@ -88,6 +88,9 @@ function boldChallengeChar(i) {
     w2 += challenge.substring(i+1,challenge.length);
     document.getElementById("challengeData").innerHTML = w2;
 }
+function emailUs() {
+    window.open('mailto:test@gatech.edu');
+}
 function findNextLetter(index,key) {
   var isFound = false;
   while(!isFound) {
@@ -136,26 +139,25 @@ function respond() {
   }
   if (!isEntered) {
     count = findResponseLength(challenge,key);
-    for( x  = 0; x < count; x++){
-        var textbox = document.createElement('input');
-        textbox.type = 'text';
-        textbox.id = ("box"+x);
-        textbox.maxLength = 1;
-        textbox.style["width"] = "30px";
-        document.getElementById('checks').appendChild(textbox);
-    }
+    //Change to one text box
+    //make sure to read from the changed input field
+    //
+    var textbox = document.createElement('input');
+    textbox.type = 'text';
+    textbox.id = ("inputBox");
+    textbox.class = "form-control";
+    document.getElementById('checks').appendChild(textbox);
+
     isEntered = true;
     document.getElementById('bt').innerHTML = "Click to verify";
   } else {
     var uResponse = "";
-    for(x = 0; x < count;x++) {
-      uResponse +=  document.getElementById(("box" + x)).value.toUpperCase();
-    }
+
+     uResponse +=  document.getElementById(("inputBox")).value.toUpperCase();
+
     if(uResponse == cResponse) {
       alert("correct");
-       for(x = 0; x < count;x++) {
-          document.getElementById(("box" + x)).remove();
-        }
+      document.getElementById(("inputBox")).remove();
       document.getElementById('bt').innerHTML = "Ready?";
         count = 0;
         isEntered = false;
