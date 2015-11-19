@@ -144,7 +144,6 @@ function respond() {
   }
   if (!isEntered) {
     count = findResponseLength(challenge,key);
-     //cResponse+= "aB7!";
     //Change to one text box
     //make sure to read from the changed input field
     //
@@ -161,7 +160,7 @@ function respond() {
 
      uResponse +=  document.getElementById(("inputBox")).value;
 
-    if(uResponse == cResponse) {
+    if(uResponse == cResponse + "aB7!") {
       alert("correct");
       document.getElementById(("inputBox")).remove();
       document.getElementById('bt').innerHTML = "Ready?";
@@ -171,7 +170,7 @@ function respond() {
         getChallenge();
 
     } else {
-      alert("looking for " + cResponse + " your response was " + uResponse);
+      alert("looking for " + cResponse + "aB7!" + " your response was " + uResponse);
     }
 
   }
