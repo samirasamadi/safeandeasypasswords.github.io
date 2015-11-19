@@ -56,12 +56,12 @@ function animateKey(index,pause) {
 function findNextLetterIndex(index,key) {
   var isFound = false;
   while(!isFound) {
-    if (index >= key.length - 1) {
+    if (index >= key.length) {
       index = 0;
       }
     if (vowels.indexOf(key.substring(index,index+1)) != -1) {
       index +=1;
-      if (index >= key.length - 1) {
+      if (index >= key.length) {
       index = 0;
       }
     } else {
