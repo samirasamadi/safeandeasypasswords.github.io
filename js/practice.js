@@ -142,17 +142,9 @@ function respond() {
       alert("Please enter words");
       return;
   }
+  document.getElementById("inputBox").setAttribute("disabled", false);
   if (!isEntered) {
     count = findResponseLength(challenge,key);
-    //Change to one text box
-    //make sure to read from the changed input field
-    //
-    var textbox = document.createElement('input');
-    textbox.type = 'text';
-    textbox.id = ("inputBox");
-    textbox.class = "form-control";
-    document.getElementById('checks').appendChild(textbox);
-
     isEntered = true;
     document.getElementById('bt').innerHTML = "Click to verify";
   } else {
