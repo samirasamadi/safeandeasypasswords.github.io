@@ -135,8 +135,8 @@ function getChallenge(isFirst){
         var prevReponse = document.createElement('p');
         prevReponse.innerHTML = "The response was " + cResponse + "aB7!";
         var prevChallenge = document.getElementById("challengeDiv").innerHTML;
-        prevChallenge.replace("was","is");
-        document.getElementById("challengeDiv").innerHTML = prevChallenge + prevReponse;
+        prevChallenge = prevChallenge.replace("was","is");
+        document.getElementById("challengeDiv").innerHTML = prevChallenge + prevReponse.innerHTML;
     }
     document.getElementById("challengeDiv").appendChild(text);
     challenge = challenges;
