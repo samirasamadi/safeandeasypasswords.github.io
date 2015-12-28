@@ -116,6 +116,7 @@ function findNextLetter(index,key) {
   return key.substring(index,index+1);
 }
 function findResponseLength(challenge,key) {
+    cResponse = "";
   for (i = 0; i < challenge.length; i++) {
     var index = key.indexOf(challenge.substring(i,i+1));
     if( index != -1) {
@@ -125,11 +126,14 @@ function findResponseLength(challenge,key) {
   }
   return count;
 }
-function getChallenge(){
+function getChallenge(isFirst){
     var index = Math.floor((Math.random() * siteNames.length - 1));
     var challenges = siteNames[index].toUpperCase();
     var text = document.createElement('p');
     text.innerHTML = "The challenge is <b>" + challenges +"</b>";
+    if (isFirst == 1) {
+        document.getElementById("challengeDiv").innerHTML = document.getElementById("challengeDiv").innerHTML + "The response was " + cResponse + "aB7!\n";
+    }
     document.getElementById("challengeDiv").appendChild(text);
     challenge = challenges;
 
@@ -158,11 +162,9 @@ function respond() {
         document.getElementById('inputBox').value = "";
         count = 0;
         isEntered = false;
-        cResponse = "";
-        getChallenge();
-
+        getChallenge(1);
     } else {
-      alert("looking for " + cResponse + "aB7!" + " your response was " + uResponse);
+      alert("looking for " + cResponse + "aB7!" + " your response was " + uResponse + "\nPlease change your answer to reflect this!");
     }
 
   }
