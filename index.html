@@ -48,6 +48,11 @@
 
 
     <div class="container">
+        <div class = "top">
+            <span class = "intro"></span>
+        </div>
+
+        <div class = "mainContent">
         <p>When was the last time that you wanted to login to a website or an app but you had forgotten your password?
         How many passwords did you unsuccessfully try in order to login?
         How many of these passwords have been used for other websites/apps?</p>
@@ -66,7 +71,8 @@
         This is a significant increase in security compared to using a set of similar passwords for all the websites.</p>
 
        If you are interested to learn more, click here to for more details about our password schemas.</p>
-      <a href = "http://www.cc.gatech.edu/~vempala/papers/phuspcs.pdf">Original publication</a>
+       <a href = "http://www.cc.gatech.edu/~vempala/papers/phuspcs.pdf">Original publication</a>
+       </div>
     </div><!-- /.container -->
 
 
@@ -74,6 +80,60 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.typewriter.min.js"></script>
+    <script src="js/typed.js"></script>
+    <script src = "http://code.jquery.com/color/jquery.color-2.1.0.js"></script>
+    <script>
+    $(function(){
+        $(".intro").typed({
+            strings: ["73% of online accounts are guarded by duplicate passwords^1000<br>54% of people use 5 or fewer passwords across their entire online life^1000<br>In the past year, 2 out of every 5 people online had accounts hacked or passwords stolen^1000<br> Don't become a statistic<br>Scroll down to learn more"],
+            typeSpeed: 5,
+            showCursor: true,
+            // character for cursor
+            cursorChar: "|",
+        });
+    });
+    </script>
+    <style type="text/css">
+    body {
+        background: linear-gradient( #000000 50%, #FFFFFF 50%);
+    }
+    .top {
+
+        min-height: 100vh;
+    }
+    .intro {
+        color: green;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 150%;
+        height: 100vh;
+    }
+    .mainContent{
+        height: 100vh;
+        background: white;
+    }
+    .typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+    color:green;
+    }
+    @keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-webkit-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+    @-moz-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+    }
+   </style>
   </body>
 </html>
