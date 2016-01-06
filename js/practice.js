@@ -169,7 +169,8 @@ function respond() {
         isEntered = false;
         getChallenge(1);
     } else {
-      alert("looking for " + cResponse + "aB7!" + " your response was " + uResponse + "\nPlease change your answer to reflect this!");
+      alert("looking for " + cResponse + "aB7!" + " your response was " + uResponse);
+      document.getElementById("inputBox").value = cResponse + "aB7!";
     }
 
   }
